@@ -43,18 +43,18 @@
 void setup()
 {
   IOShieldOled.begin();
-  pinMode(37, Input);
-  pinMode(36, Input);
-  pinMode(34, Input);
-  pinMode(4,  Input);
-  pinMode(33, Output);
-  pinMode(32, Output);
-  pinMode(31, Output);
-  pinMode(30, Output);
-  pinMode(29, Output);
-  pinMode(28, Output);
-  pinMode(27, Output);
-  pinMode(26, Output);
+  pinMode(37, INPUT);
+  pinMode(36, INPUT);
+  pinMode(34, INPUT);
+  pinMode(4,  INPUT);
+  pinMode(33, OUTPUT);
+  pinMode(32, OUTPUT);
+  pinMode(31, OUTPUT);
+  pinMode(30, OUTPUT);
+  pinMode(29, OUTPUT);
+  pinMode(28, OUTPUT);
+  pinMode(27, OUTPUT);
+  pinMode(26, OUTPUT);
   
 }
 
@@ -77,8 +77,8 @@ void loop()
   
   //Draw a rectangle over writing then slide the rectagle
   //down slowly displaying all writing
-  for (irow = 0; irow < IOShieldOled.rowMax; irow++)
-  {
+  //for (irow = 0; irow < IOShieldOled.rowMax; irow++)
+  //{
     IOShieldOled.clearBuffer();
     IOShieldOled.setCursor(0, 0);
     IOShieldOled.putString("chipKIT");
@@ -87,18 +87,23 @@ void loop()
     IOShieldOled.setCursor(0, 2);
     IOShieldOled.putString("by Digilent");
     
-    IOShieldOled.moveTo(0, irow);
-    IOShieldOled.drawFillRect(127,31);
-    IOShieldOled.moveTo(0, irow);
-    IOShieldOled.drawLine(127,irow);
-    IOShieldOled.updateDisplay();
-    delay(100);
-  }
+  //  IOShieldOled.moveTo(0, irow);
+  //  IOShieldOled.drawFillRect(127,31);
+   // IOShieldOled.moveTo(0, irow);
+  //  IOShieldOled.drawLine(127,irow);
+  //  IOShieldOled.updateDisplay();
+  //  delay(100);
+  //}
   
-  button1 = digitalread(32);
-  button2 = digitalread(36);
-  button3 = digitalread(34);
-  button4 = digitalread(4); 
+  button1 = digitalRead(32);
+  button2 = digitalRead(36);
+  button3 = digitalRead(34);
+  button4 = digitalRead(4); 
+
+  digitalWrite(33, button1);
+  digitalWrite(32, button2);
+  digitalWrite(31, button3);
+  digitalWrite(30, button4);
 
 }
   
